@@ -1,0 +1,208 @@
+$headerbgcolor : rgb(33, 33, 92);
+$bodybgcolor : white;
+$addcolor : rgb(121, 99, 102);
+$h1titlecolor : rgb(130, 245, 245);
+$deletebtncolor :rgb(219, 103, 103);
+$tablebgcolor : rgb(130, 204, 163);
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    //background-color: $headerbgcolor;
+}
+
+.title {
+    max-width: 100%;
+
+    &-header{
+        background-color: $headerbgcolor;
+
+        h1{
+            font-size: 50px;
+            color: $deletebtncolor;
+            padding-bottom: 10px;
+        }
+        
+    }
+}
+.todotitle{
+    max-width: 100%;
+    
+    &-header{
+        width: 80%;
+        margin-left: 10%;
+        //background-color: $addcolor;
+        margin-top: 5%;
+
+        h2{
+            font-size: 25px;
+            color: $deletebtncolor;
+            margin-bottom: 10px;
+
+        }
+
+        .row{
+            //background-color: purple;
+            margin-bottom: 5px;
+            padding-top: 5px;
+            height: 100px;
+
+            input{
+                border: 2px solid $h1titlecolor;
+                border-radius: 4px;
+                width: 70%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-color: $bodybgcolor;
+                font-size: 15px;
+            }
+
+            .inputtodoname{
+                width: 200%;
+            }
+        }
+
+    }
+
+    .btn {
+        display: inline-block;
+        border-radius: 5px;
+        padding: 13px 20px;
+        margin: 4px;
+        background-color: $h1titlecolor;
+        border-color: $h1titlecolor;
+    
+        &:hover {
+            transform: scale(.98);
+        }
+    }
+    
+   
+}
+
+.btn{
+    display: inline-block;
+    border-radius: 5px;
+    padding: 13px 20px;
+    margin: 4px;
+    background-color: $h1titlecolor;
+    border-color: $h1titlecolor;
+
+    &:hover {
+        transform: scale(.98);
+    }
+}
+
+
+
+.todolisttitle{
+    max-width: 100%;
+    padding-top: 5%;
+
+    h2{
+        font-size: 25px;
+        color: $deletebtncolor;
+        margin-bottom: 10px;
+
+    }
+    
+    &-header{
+        width: 80%;
+        margin-left: 10%;
+        //background-color: $addcolor;    
+    }
+
+    .btn {
+        display: inline-block;
+        border-radius: 5px;
+        padding: 8px 20px;
+        margin: 3px;
+        background-color: $h1titlecolor;
+        border-color: $h1titlecolor;
+
+        &-deletebtn{
+            display: inline-block;
+            border-radius: 5px;
+            padding: 8px 20px;
+            margin: 3px;
+            background-color: $deletebtncolor;
+            border-color: $deletebtncolor;
+        }
+    
+        &:hover {
+            transform: scale(.98);
+        }
+
+       
+    }  
+    .addlist{
+
+        table{
+            max-width: 77%;
+            margin-left: 11%;
+        }
+        table , th , td{
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            background-color: $tablebgcolor;
+          }
+    }    
+}
+
+.updatetodo{
+    max-width: 100%;
+    
+    &-header{
+        width: 80%;
+        margin-left: 10%;
+        //background-color: $addcolor;
+        margin-top: 5%;
+
+        .row{
+            //background-color: purple;
+            margin-bottom: 5px;
+            padding-top: 5px;
+            height: 100px;
+
+            input, select{
+                border: 2px solid $h1titlecolor;
+                border-radius: 4px;
+                width: 70%;
+                padding: 8px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-color: $bodybgcolor;
+                font-size: 15px;
+            }
+            
+            .inputtodoname{
+                width: 200%;
+            }
+        }
+
+    }
+
+    .btn-update {
+        display: inline-block;
+        border-radius: 5px;
+        padding: 13px 20px;
+        margin: 4px;
+        margin-top: 20%;
+        background-color: $h1titlecolor;
+        border-color: $h1titlecolor;
+    
+        &:hover {
+            transform: scale(.98);
+        }
+    }
+     
+}
