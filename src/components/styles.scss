@@ -71,8 +71,9 @@ $tablebgcolor : rgb(130, 204, 163);
     .btn {
         display: inline-block;
         border-radius: 5px;
-        padding: 13px 20px;
+        padding: 13px 25px;
         margin: 4px;
+        margin-left: 15%;
         background-color: $h1titlecolor;
         border-color: $h1titlecolor;
     
@@ -97,7 +98,13 @@ $tablebgcolor : rgb(130, 204, 163);
     }
 }
 
-
+.btn-group{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-e;
+    left: 0;
+}
 
 .todolisttitle{
     max-width: 100%;
@@ -196,7 +203,7 @@ $tablebgcolor : rgb(130, 204, 163);
         border-radius: 5px;
         padding: 13px 20px;
         margin: 4px;
-        margin-top: 20%;
+        margin-top: 28%;
         background-color: $h1titlecolor;
         border-color: $h1titlecolor;
     

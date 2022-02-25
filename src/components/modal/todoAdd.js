@@ -11,13 +11,13 @@ const ToDoAdd = (todos) => {
     const [todoDescription, setTodoDescription] = useState('');
     const dispatch = useDispatch();
     const addToDoList = useSelector((state) => state.addTodoList);
-    const { loading, todo , description} = addToDoList;
+    const { loading, todo, description } = addToDoList;
 
     const submitForm = (e) => {
         e.preventDefault()
         const payload = {
-            "todo":todoName,
-            "description":todoDescription,
+            "todo": todoName,
+            "description": todoDescription,
             status: 'pending'
         }
         Swal.fire({
@@ -59,18 +59,21 @@ const ToDoAdd = (todos) => {
                                     value={todoDescription}
                                     onChange={(e) => setTodoDescription(e.target.value)}
                                     placeholder='Add your todo description' />
-                                <button
-                                    className='btn'
-                                    type="submit"
-                                    onClick={submitForm}>
-                                    Add
-                                </button>
+
                             </div>
                         </div>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <button className="btn btn-close" onClick={() => { onHide() }}>Close</button>
+                    <div className="btn-group">
+                        <button
+                            className='btn'
+                            type="submit"
+                            onClick={submitForm}>
+                            Add
+                        </button>
+                        <button className="btn btn-close" onClick={() => { onHide() }}>Close</button>
+                    </div>
                 </Modal.Footer>
             </div>
         </div>
