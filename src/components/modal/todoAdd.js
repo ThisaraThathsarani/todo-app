@@ -4,30 +4,31 @@ import { addTodo } from "../../actions/todoActions"
 import "../styles.scss"
 import { Modal, Button } from 'react-bootstrap'
 import Swal from 'sweetalert2'
-import { useHistory } from 'react-router';
 
 const ToDoAdd = (todos) => {
     const { onHide } = todos;
     const [todoName, setToDoName] = useState('');
+    const [todoDescription, setTodoDescription] = useState('');
     const dispatch = useDispatch();
     const addToDoList = useSelector((state) => state.addTodoList);
-    const { loading, todo } = addToDoList;
-    
+    const { loading, todo , description} = addToDoList;
+
     const submitForm = (e) => {
         e.preventDefault()
         const payload = {
-            todoName,
+            "todo":todoName,
+            "description":todoDescription,
             status: 'pending'
         }
         Swal.fire({
             title: "Are you sure you want to add todo?",
-            showConfirmButton:true,
-            showDenyButton:true,
+            showConfirmButton: true,
+            showDenyButton: true,
             confirmButtonText: "Add Todo",
             denyButtonText: "Cancel",
-            confirmButtonColor: "#1fc191"       
+            confirmButtonColor: "#1fc191"
         }).then((result) => {
-            if(result.isConfirmed){
+            if (result.isConfirmed) {
                 dispatch(addTodo(payload))
                 window.location.replace('/');
             }
@@ -42,23 +43,30 @@ const ToDoAdd = (todos) => {
                 </Modal.Header>
                 <Modal.Body className='px-4'>
                     <div className='addlist'>
-                            <div className='row'>
-                                <div className='inputtodoname'>
-                                    <input
-                                        required
-                                        type="text"
-                                        className='name'
-                                        value={todoName}
-                                        onChange={(e) => setToDoName(e.target.value)}
-                                        placeholder='Add your todo' />
-                                    <button
-                                        className='btn'
-                                        type="submit"
-                                        onClick={submitForm}>
-                                        Add
-                                    </button>
-                                </div>
+                        <div className='row'>
+                            <div className='inputtodoname'>
+                                <input
+                                    required
+                                    type="text"
+                                    className='name'
+                                    value={todoName}
+                                    onChange={(e) => setToDoName(e.target.value)}
+                                    placeholder='Add your todo' />
+                                <input
+                                    required
+                                    type="text"
+                                    className='description'
+                                    value={todoDescription}
+                                    onChange={(e) => setTodoDescription(e.target.value)}
+                                    placeholder='Add your todo description' />
+                                <button
+                                    className='btn'
+                                    type="submit"
+                                    onClick={submitForm}>
+                                    Add
+                                </button>
                             </div>
+                        </div>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>

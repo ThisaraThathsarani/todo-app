@@ -10,19 +10,22 @@ const UpdateModal = (todos) => {
     const IDTODO = todos.data.id;
     const [id, setID] = useState("");
     const [todoName, setTodoName] = useState("");
+    const [todoDescription, setTodoDescription] = useState("");
     const [status, setStatus] = useState("");
 
     useEffect(() => {
         dispatch(getOneTodo(IDTODO));
         setID(todos.data.id);
-        setTodoName(todos.data.todoName);
+        setTodoName(todos.data.todo);
+        setTodoDescription(todos.data.description);
         setStatus(todos.data.status);
     }, []);
 
     const onSubmit = (e) => {
         e.preventDefault();
         const newUpdateTodo = {
-            todoName,
+            "todo":todoName,
+            "description":todoDescription,
             status,
         }
         Swal.fire({
@@ -35,7 +38,7 @@ const UpdateModal = (todos) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(updateTodo(IDTODO, newUpdateTodo));
-                window.location.replace('/');
+                //window.location.replace('/');
             }
         })
     }
@@ -62,6 +65,11 @@ const UpdateModal = (todos) => {
                                     type="text"
                                     value={todoName}
                                     onChange={(event) => setTodoName(event.target.value)}
+                                />
+                                <input
+                                    type="text"
+                                    value={todoDescription}
+                                    onChange={(event) => setTodoDescription(event.target.value)}
                                 />
                                 <select
                                     value={status}

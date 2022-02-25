@@ -48,7 +48,8 @@ const ToDoList = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th >ToDo</th>
+                                <th>ToDo</th>
+                                <th>Description</th>
                                 <th>Status</th>
                                 <th >Action</th>
                             </tr>
@@ -57,7 +58,8 @@ const ToDoList = () => {
                             {todo.map((display) => (
                                 <tr key={display.id}>
                                     <td>{display.id}</td>
-                                    <td>{display.todoName}</td>
+                                    <td>{display.todo}</td>
+                                    <td>{display.description}</td>
                                     <td>{display.status}</td>
                                     <td>
                                         <button className='btn' onClick={() => { openModalUpdate(display) }}>Update</button>

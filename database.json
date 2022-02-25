@@ -12,8 +12,18 @@
     },
     {
       "todoName": "rrrrr",
-      "status": "pending",
+      "status": "Pending",
       "id": 3
+    },
+    {
+      "todoName": "6",
+      "status": "pending",
+      "id": 4
+    },
+    {
+      "todoName": "dddd",
+      "status": "Completed",
+      "id": 5
     }
   ]
 }
