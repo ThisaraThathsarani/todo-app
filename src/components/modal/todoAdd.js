@@ -10,8 +10,6 @@ const ToDoAdd = (todos) => {
     const [todoName, setToDoName] = useState('');
     const [todoDescription, setTodoDescription] = useState('');
     const dispatch = useDispatch();
-    const addToDoList = useSelector((state) => state.addTodoList);
-    const { loading, todo, description } = addToDoList;
 
     const submitForm = (e) => {
         e.preventDefault()
@@ -30,7 +28,7 @@ const ToDoAdd = (todos) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(addTodo(payload))
-                window.location.replace('/');
+                onHide();
             }
         })
     }
@@ -64,7 +62,7 @@ const ToDoAdd = (todos) => {
                         </div>
                     </div>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className="modalFooter">
                     <div className="btn-group">
                         <button
                             className='btn'

@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateTodo, getOneTodo } from "../../actions/todoActions"
 import Swal from 'sweetalert2'
 
-const UpdateModal = (todos) => {
+const UpdateModal = (props) => {
 
     const dispatch = useDispatch();
-    const IDTODO = todos.data.id;
+    const IDTODO = props.data.id;
     const [id, setID] = useState("");
     const [todoName, setTodoName] = useState("");
     const [todoDescription, setTodoDescription] = useState("");
@@ -15,10 +15,10 @@ const UpdateModal = (todos) => {
 
     useEffect(() => {
         dispatch(getOneTodo(IDTODO));
-        setID(todos.data.id);
-        setTodoName(todos.data.todo);
-        setTodoDescription(todos.data.description);
-        setStatus(todos.data.status);
+        setID(props.data.id);
+        setTodoName(props.data.todo);
+        setTodoDescription(props.data.description);
+        setStatus(props.data.status);
     }, []);
 
     const onSubmit = (e) => {
@@ -38,12 +38,12 @@ const UpdateModal = (todos) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(updateTodo(IDTODO, newUpdateTodo));
-                //window.location.replace('/');
+                onHide();
             }
         })
     }
 
-    const { onHide } = todos;
+    const { onHide } = props;
 
     return (
         <div className='updatetodo'>

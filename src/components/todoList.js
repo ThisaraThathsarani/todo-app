@@ -10,12 +10,16 @@ const ToDoList = () => {
     const dispatch = useDispatch();
     const todoList = useSelector((state) => state.todoList);
     const { todo } = todoList;
+    const updateTodo = useSelector((state) => state.updateTodo);
+    const { success: updateSuccess } = updateTodo;
+    const deleteOneTodo = useSelector((state) => state.deleteTodo);
+    const { success: deleteSuccess } = deleteOneTodo;
     const [modalDataUpdate, setModalDataUpdate] = useState([]);
     const [modalUpdate, setModalUpdate] = useState(false);
 
     useEffect(() => {
         dispatch(getTodo());
-    }, []);
+    }, [todoList, updateSuccess, deleteSuccess]);
 
     const openModalUpdate = (data) => {
         setModalDataUpdate(data);
@@ -34,7 +38,6 @@ const ToDoList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(deleteTodo(id))
-                window.location.replace('/');
             }
         })
     }
